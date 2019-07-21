@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,53 +12,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+    <input type= "button" onclick="window.location.href='/add?productId=0'" value="Add product"/>
         <h3>Welcome, Enter Contact Details</h3>
-        <form:form method="POST"
-          action="/addContact" modelAttribute="contact">
+        <form:form method="POST" modelAttribute="products">
+       <input type="submit" name="submit" value="Usuń zaznaczone">
           
              <table>
-                <tr>
-                    <td><label>Imie</label></td>
-                    <td><form:input path="name" required="required"/></td>
-                </tr>
-<!--                 <tr> -->
-<%--                     <td><form:label path="id">Id</form:label></td> --%>
-<%--                     <td><form:input path="id"/></td> --%>
-<!--                 </tr> -->
-                <tr>
-                    <td><label>
-                      Nazwisko</label>
-                      
-                      </td>
-                    <td><form:input path="surname" required="required"/></td>
-                </tr>
-                <tr>
-                    <td><label>
-                      Telefon</label></td>
-                    <td><form:input path="phone" /></td>
-                    <td><form:errors path="phone" cssClass="error" /></td>
-                </tr>
-                <tr>
-                    <td><label>
-                      Mail</label></td>
-                    <td><form:input path="mail" /></td>
-                     <td><form:errors path="mail" cssClass="error" /></td>
-                </tr>
-                <tr>
-                    <td><label>
-                      Adres</label></td>
-                    <td><form:input type="textbox" path="address"  class="mytext" /></td>
-                </tr>
-                <tr>
-                    <td><label>
-                      Cel</label>
-                      </td>
-                    <td><form:input path="contactReason" class="mytext" /></td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="Submit"/></td>
-                </tr>
-            </table>
-        </form:form>
+	<tr>
+		<th>checkbox</th>
+		<th>Name</th>
+		<th>price</th>
+		<th>Edit</th>
+	</tr>
+	<c:forEach items="${products}" var="product" >
+	
+	
+	<c:url var="updateLink" value="/add">
+		<c:param name="productId" value="${product.id}"/>
+		</c:url>
+		<tr>
+			<td><input type="checkbox" name="checkboxName" value="${product.id}"/></td>
+			<td>${product.name}</td>
+			<td>${product.price}"</td>
+			<td> <a href="${updateLink}">update</a></td>
+		</tr>
+	</c:forEach>
+	</table>
+	</form:form>
     </body>
 </html>

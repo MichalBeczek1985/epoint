@@ -1,11 +1,7 @@
-create table contacts
+	create table products
 (
 	id integer auto_increment not null,
-	name varchar(50) not null,
-	surname varchar(50) not null,
-	mail varchar(70),
-	phone varchar(9),
-	address varchar(200),
-	contactReason varchar(2000),
+	name varchar(120) not null,
+	price double not null,
 	primary key(id)
 );

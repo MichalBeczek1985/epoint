@@ -1,4 +1,4 @@
-package com.example.nnform;
+package com.example.epoint;
 
 import java.beans.PropertyEditorSupport;
 
@@ -11,20 +11,20 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
-import com.example.nnform.dao.ContactFormDAO;
-import com.example.nnform.dao.ContactFormDAOImpl;
-import com.example.nnform.model.ContactForm;
+import com.example.epoint.dao.ProductsDAO;
+import com.example.epoint.dao.ProductsDAOImpl;
+import com.example.epoint.model.Products;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"com.example.nnform"})
-public class NnformApplication  extends SpringBootServletInitializer{
+@ComponentScan(basePackages={"com.example.epoint"})
+public class EpointApplication  extends SpringBootServletInitializer{
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(NnformApplication.class);
+		return application.sources(EpointApplication.class);
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(NnformApplication.class, args);
+		SpringApplication.run(EpointApplication.class, args);
 	}
 	
 }

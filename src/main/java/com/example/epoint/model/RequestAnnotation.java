@@ -1,4 +1,4 @@
-package com.example.nnform.model;
+package com.example.epoint.model;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
