@@ -1,10 +1,14 @@
 package com.example.epoint.model;
+
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+
 public class Products {
 
 	private int id;
 	
 	private String name;
-	
+	@DecimalMax("10.0") @DecimalMin("0.0") 
 	private double price;
 
 	

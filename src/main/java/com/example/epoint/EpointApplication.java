@@ -8,6 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
@@ -26,5 +27,14 @@ public class EpointApplication  extends SpringBootServletInitializer{
 	public static void main(String[] args) {
 		SpringApplication.run(EpointApplication.class, args);
 	}
+	@Bean
+    public ResourceBundleMessageSource messageSource() {
+
+        var source = new ResourceBundleMessageSource();
+        source.setBasenames("messages/messages");
+        source.setUseCodeAsDefaultMessage(true);
+
+        return source;
+    }
 	
 }
