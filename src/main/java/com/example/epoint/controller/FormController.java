@@ -41,7 +41,7 @@ public class FormController {
 		mav.setViewName("index");
 		List<Products> list = productsDAO.list();
 		mav.addObject("products", list);
-		logger.debug("Hello from Log4j 2 - num : {}");
+		logger.debug("Log from home controller");
 
 		return mav;
 	}
@@ -77,7 +77,7 @@ public class FormController {
 		for(int i : checkboxValue) {
 			productsDAO.delete(i);
 		}
-		redirectAttributes.addFlashAttribute("SUCCESS_MESSAGE", messageSource.getMessage("label_checked_delete", 
+		redirectAttributes.addFlashAttribute("WARNING_MESSAGE", messageSource.getMessage("label_checked_delete", 
 				new String[] {""}, locale));
 		return new ModelAndView("redirect:/"); 
 		}

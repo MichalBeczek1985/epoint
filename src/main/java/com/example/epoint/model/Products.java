@@ -8,7 +8,7 @@ public class Products {
 	private int id;
 	
 	private String name;
-	@DecimalMax("10.0") @DecimalMin("0.0") 
+	@DecimalMin("0.0") 
 	private double price;
 
 	
@@ -66,6 +66,14 @@ public class Products {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+
+
+	@Override
+	public String toString() {
+		return "Products [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
 	
 	
